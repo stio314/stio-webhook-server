@@ -10,14 +10,14 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Headers', 'content-type')
 
-    res.setHeader('Content-Security-Policy', "connect-src 'self' 'https://squartio.neocities.org/'")
+    res.setHeader('Content-Security-Policy', "connect-src 'self' 'https://squartio.neocities.org/' blob: 'unsafe-inline'")
     
     next()
 })
 app.use(express.json({ limit: '1mb' }))
 
 app.listen(PORT, () => {
-    console.log(`Server listening at port ${PORT}`)
+    console.log(`Server listening at port ${PORT}, wacky`)
 })
 
 app.post('/send_question', (req, res) => {
