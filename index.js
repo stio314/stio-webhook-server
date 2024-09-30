@@ -9,6 +9,8 @@ const webhookClient = new WebhookClient({ id: process.env.ID, token: process.env
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Headers', 'content-type')
+
+    res.setHeader('Content-Security-Policy', "connect-src 'self' 'https://squartio.neocities.org/'")
     
     next()
 })
