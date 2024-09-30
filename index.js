@@ -10,14 +10,14 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Headers', 'content-type')
 
-    res.setHeader('Content-Security-Policy', "default-src 'self'; connect-src * data: blob: 'unsafe-inline';")
+    // res.setHeader('Content-Security-Policy', "default-src 'self'; connect-src * data: blob: 'unsafe-inline';")
     
     next()
 })
 app.use(express.json({ limit: '1mb' }))
 
 app.listen(PORT, () => {
-    console.log(`Server listening at port ${PORT}, wacky2`)
+    console.log(`Server listening at port ${PORT}, wacky23`)
 })
 
 app.post('/send_question', (req, res) => {
