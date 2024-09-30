@@ -10,7 +10,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Headers', 'content-type')
 
-    res.setHeader('Content-Security-Policy', "connect-src * data: blob: 'unsafe-inline'")
+    res.setHeader('Content-Security-Policy', "default-src 'self'; connect-src * data: blob: 'unsafe-inline';")
     
     next()
 })
