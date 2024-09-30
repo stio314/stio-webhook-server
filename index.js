@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 app.use(express.json({ limit: '1mb' }))
 
 app.listen(PORT, () => {
-    console.log(`Server listening at port ${PORT}, wacky`)
+    console.log(`Server listening at port ${PORT}, wacky2`)
 })
 
 app.post('/send_question', (req, res) => {
