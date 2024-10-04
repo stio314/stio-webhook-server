@@ -56,3 +56,29 @@ app.post('/send_art', (req, res) => {
         })
         .catch(console.error)
 })
+
+app.post('/send', (req, res) => {
+    const { question, image } = req.body
+
+    if (!image) {
+        res.status(400).send({ message: 'Art not provided' })
+        return
+    }
+    
+    const buffer = new Buffer.from(image, 'base64')
+    const attachment = new AttachmentBuilder(buffer, 'output.png')    
+
+    const embed = new EmbedBuilder()
+
+    if (question) {
+        embed.setTitle(question)
+    } else {
+        embed.setAuthor({ name: `Art submitted` })
+    }
+
+    webhookClient.send({ files: [attachment], embeds: [embed] })
+        .then(message => {
+            res.status(200).send({ message: `Sent art` })
+        })
+        .catch(console.error)
+})
